@@ -1,5 +1,6 @@
 import { defineSiteConfig } from "astro-theme-university/types";
 import { slopBranding } from "astro-theme-slop";
+import slopLogoSketch from "./assets/slop-logo-sketch.png";
 
 // The underlying collection and URL remain `sessions`; these labels are the
 // language students see.
@@ -17,11 +18,12 @@ export const courseApiCollections = [
 
 export const siteConfig = defineSiteConfig({
   ...slopBranding,
-  // The Slop wordmark is a fixed vector lockup drawn in the brand's own
-  // display face, so it can't pick up the site's Comic Sans override; drop
-  // it and let the nav fall back to a text wordmark, which does. Keep the
-  // crest as the favicon — that's a browser-tab icon, not body text.
-  logo: undefined,
+  // Swapped the brand's vector lockup for a hand-drawn one. No separate
+  // dark-mode or compact variant to draw from, so drop those overrides:
+  // Nav then renders this single image unconditionally, at every viewport
+  // width and in both themes. Keep the crest as the favicon — that's a
+  // browser-tab icon, not the nav mark.
+  logo: slopLogoSketch,
   logoDark: undefined,
   logoCompact: undefined,
   name: "Slop University",
