@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "astro/config";
 import courseGraph from "astro-course-university";
 import universityTheme from "astro-theme-university";
@@ -5,6 +6,11 @@ import { astromotion, deckRemarkPlugins } from "astromotion";
 import { courseMeta } from "./src/course-config.ts";
 import { courseApiCollections } from "./src/site-config.ts";
 import { gitOrigin, resolveDeployment } from "./scripts/pages-base.ts";
+
+// brandCss is spliced into a bare `import "<spec>";` statement, so a relative
+// path resolves against the virtual module doing the importing, not the
+// project root --- an absolute path sidesteps that.
+const siteOverridesCss = fileURLToPath(new URL("./src/styles/site-overrides.css", import.meta.url));
 
 // Derived, never hardcoded --- see scripts/pages-base.ts for why.
 const { site, base } = resolveDeployment(process.env, gitOrigin);
@@ -22,7 +28,9 @@ export default defineConfig({
       defaultLayout: "src/layouts/PageLayout.astro",
       // The whole brand choice: three colour tokens and a set of lockups. Keep
       // institutional brand packages and assets out of this fictional site.
-      brandCss: "astro-theme-slop/slop.css",
+      // site-overrides.css layers on top (brandCss is unlayered, so later
+      // entries still win ties on the same property).
+      brandCss: ["astro-theme-slop/slop.css", siteOverridesCss],
       imageFormat: "avif",
       llmsTxt: true,
       // The theme owns the markdown plugin chain, so astromotion's slide
