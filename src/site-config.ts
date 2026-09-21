@@ -17,6 +17,13 @@ export const courseApiCollections = [
 
 export const siteConfig = defineSiteConfig({
   ...slopBranding,
+  // The Slop wordmark is a fixed vector lockup drawn in the brand's own
+  // display face, so it can't pick up the site's Comic Sans override; drop
+  // it and let the nav fall back to a text wordmark, which does. Keep the
+  // crest as the favicon — that's a browser-tab icon, not body text.
+  logo: undefined,
+  logoDark: undefined,
+  logoCompact: undefined,
   name: "Slop University",
 
   links: [
