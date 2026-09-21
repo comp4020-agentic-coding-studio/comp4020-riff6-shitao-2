@@ -32,3 +32,11 @@ h6 {
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
+
+/* The hand-drawn logo is a photo of a sketch, not a vector lockup: at the
+ * theme's 2.5rem nav height the lettering is unreadable. Scale it with the
+ * viewport instead — big enough to read on desktop, small enough that the
+ * brand still fits beside the menu and search buttons at 393px. */
+.at-nav-logo {
+  height: clamp(3rem, 9vw, 6rem);
+}
