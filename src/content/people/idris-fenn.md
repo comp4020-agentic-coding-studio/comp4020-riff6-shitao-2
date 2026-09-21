@@ -5,7 +5,7 @@ description:
   first point of contact for anything hands-on.
 affiliation: Slop University School of Invented Disciplines
 role: tutor
-email: idris.fenn@slop.university
+email: idris.fenn@slop.edu
 contact: Ask during a studio, or email when a question can't wait until the next one.
 ---
 

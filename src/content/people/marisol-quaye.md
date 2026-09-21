@@ -5,7 +5,7 @@ description:
   studio programme.
 affiliation: Slop University School of Invented Disciplines
 role: convenor
-email: marisol.quaye@slop.university
+email: marisol.quaye@slop.edu
 contact: Email for course-level questions; use the weekly studio for feedback on work in progress.
 ---
 
